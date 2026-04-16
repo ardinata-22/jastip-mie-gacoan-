@@ -4,111 +4,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jastip Gacoan - Premium</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background: linear-gradient(270deg,#fff7ed,#fee2e2,#fff7ed);
-      background-size: 600% 600%;
-      animation: bgMove 10s ease infinite;
-    }
-    @keyframes bgMove {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-    }
-  </style>
 </head>
-<body><!-- Header --><div class="bg-white p-4 shadow flex justify-between items-center">
-  <div>
-    <h1 class="font-bold text-lg">🍜 Jastip Gacoan</h1>
-    <p class="text-xs text-gray-500">Open Order • Cepat & Murah</p>
-  </div>
-  <div class="text-sm font-bold">🛒 <span id="count">0</span></div>
-</div><!-- Menu --><div class="p-4 grid grid-cols-1 gap-4">  <div class="bg-white rounded-xl shadow p-3 flex justify-between items-center">
-    <div>
-      <p class="font-bold">Mie Gacoan</p>
-      <p class="text-red-500">Rp13.000</p>
-    </div>
-    <button onclick="openLevel('Mie Gacoan',13000)" class="bg-red-500 text-white px-3 py-1 rounded">Tambah</button>
-  </div>  <div class="bg-white rounded-xl shadow p-3 flex justify-between items-center">
-    <div>
-      <p class="font-bold">Mie Hompimpa</p>
-      <p class="text-red-500">Rp13.000</p>
-    </div>
-    <button onclick="openLevel('Mie Hompimpa',13000)" class="bg-red-500 text-white px-3 py-1 rounded">Tambah</button>
-  </div>  <div class="bg-white rounded-xl shadow p-3 flex justify-between items-center">
-    <div>
-      <p class="font-bold">Mie Suit</p>
-      <p class="text-red-500">Rp13.000</p>
-    </div>
-    <button onclick="openLevel('Mie Suit',13000)" class="bg-red-500 text-white px-3 py-1 rounded">Tambah</button>
-  </div></div><!-- Modal Level --><div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-  <div class="bg-white p-4 rounded-xl w-80">
-    <h2 class="font-bold mb-2">Pilih Level</h2>
-    <div class="grid grid-cols-2 gap-2">
-      <button onclick="addItem(0)" class="bg-gray-100 p-2 rounded">Lvl 0</button>
-      <button onclick="addItem(1)" class="bg-gray-100 p-2 rounded">Lvl 1</button>
-      <button onclick="addItem(2)" class="bg-gray-100 p-2 rounded">Lvl 2</button>
-      <button onclick="addItem(3)" class="bg-gray-100 p-2 rounded">Lvl 3</button>
-      <button onclick="addItem(4)" class="bg-gray-100 p-2 rounded">Lvl 4</button>
-      <button onclick="addItem(6,1500)" class="bg-gray-100 p-2 rounded">Lvl 6 +1500</button>
-      <button onclick="addItem(8,1500)" class="bg-gray-100 p-2 rounded">Lvl 8 +1500</button>
-    </div>
-    <button onclick="closeModal()" class="mt-3 text-red-500">Tutup</button>
-  </div>
-</div><!-- Cart Floating --><div id="cartBox" class="hidden fixed bottom-20 left-4 right-4 bg-white p-3 rounded-xl shadow">
-  <div id="cartList" class="text-sm mb-2"></div>
-  <p class="font-bold">Total: Rp <span id="total">0</span></p>
-  <p class="text-xs text-gray-500">Pembayaran: QRIS</p>
-</div><!-- Bottom Bar --><div class="fixed bottom-0 left-0 right-0 bg-white p-4 shadow">
-  <button onclick="toggleCart()" class="bg-gray-200 w-full py-2 rounded mb-2">Lihat Keranjang</button>
-  <button onclick="checkout()" class="bg-green-500 text-white w-full py-2 rounded">Pesan Sekarang</button>
+<body class="bg-gray-100"><div class="bg-white p-4 shadow flex justify-between">
+  <h1 class="font-bold">🍜 Jastip Gacoan</h1>
+  <div>🛒 <span id="count">0</span></div>
+</div><div class="p-4 space-y-3"><h2 class="font-bold">Mie</h2><div class="bg-white p-3 rounded shadow flex justify-between">
+<p>Mie Gacoan - Rp13.000</p>
+<button onclick="openLevel('Mie Gacoan',13000)" class="bg-red-500 text-white px-2 rounded">+</button>
+</div><div class="bg-white p-3 rounded shadow flex justify-between">
+<p>Mie Hompimpa - Rp13.000</p>
+<button onclick="openLevel('Mie Hompimpa',13000)" class="bg-red-500 text-white px-2 rounded">+</button>
+</div><div class="bg-white p-3 rounded shadow flex justify-between">
+<p>Mie Suit - Rp13.000</p>
+<button onclick="openLevel('Mie Suit',13000)" class="bg-red-500 text-white px-2 rounded">+</button>
+</div><h2 class="font-bold mt-4">Dimsum</h2><div class="bg-white p-3 rounded shadow flex justify-between">
+<p>Udang Rambutan - Rp13.000</p>
+<button onclick="addItemDirect('Udang Rambutan',13000)" class="bg-red-500 text-white px-2 rounded">+</button>
+</div><div class="bg-white p-3 rounded shadow flex justify-between">
+<p>Lumpia Udang - Rp13.000</p>
+<button onclick="addItemDirect('Lumpia Udang',13000)" class="bg-red-500 text-white px-2 rounded">+</button>
+</div><div class="bg-white p-3 rounded shadow flex justify-between">
+<p>Udang Keju - Rp13.000</p>
+<button onclick="addItemDirect('Udang Keju',13000)" class="bg-red-500 text-white px-2 rounded">+</button>
+</div><div class="bg-white p-3 rounded shadow flex justify-between">
+<p>Dimsum - Rp13.000</p>
+<button onclick="addItemDirect('Dimsum',13000)" class="bg-red-500 text-white px-2 rounded">+</button>
+</div><div class="bg-white p-3 rounded shadow flex justify-between">
+<p>Pangsit Goreng - Rp13.000</p>
+<button onclick="addItemDirect('Pangsit Goreng',13000)" class="bg-red-500 text-white px-2 rounded">+</button>
+</div></div><!-- Modal Level --><div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+<div class="bg-white p-4 rounded">
+<p>Pilih Level</p>
+<button onclick="addItem(0)">0</button>
+<button onclick="addItem(1)">1</button>
+<button onclick="addItem(2)">2</button>
+<button onclick="addItem(3)">3</button>
+<button onclick="addItem(4)">4</button>
+<button onclick="addItem(6,1500)">6 +1500</button>
+<button onclick="addItem(8,1500)">8 +1500</button>
+</div>
+</div><div class="fixed bottom-0 left-0 right-0 bg-white p-4">
+<div id="cart"></div>
+<p>Total: Rp <span id="total">0</span></p>
+<button onclick="checkout()" class="bg-green-500 text-white w-full">Pesan Sekarang</button>
 </div><script>
-let total = 0;
-let items = [];
-let currentName = '';
-let basePrice = 0;
+let total=0;
+let items=[];
+let currentName='';
+let basePrice=0;
 
-function openLevel(nama,harga){
-  currentName = nama;
-  basePrice = harga;
-  document.getElementById('modal').classList.remove('hidden');
-}
-
-function closeModal(){
-  document.getElementById('modal').classList.add('hidden');
+function openLevel(n,h){
+currentName=n;
+basePrice=h;
+document.getElementById('modal').classList.remove('hidden');
 }
 
 function addItem(level,extra=0){
-  let price = basePrice + extra;
-  let text = currentName + ' - Level ' + level;
-  items.push(text);
-  total += price;
-  document.getElementById('count').innerText = items.length;
-  renderCart();
-  closeModal();
+let price=basePrice+extra;
+let text=currentName+' lvl '+level;
+items.push(text);
+total+=price;
+render();
+document.getElementById('modal').classList.add('hidden');
 }
 
-function renderCart(){
-  let html='';
-  items.forEach((item,i)=>{
-    html += (i+1)+'. '+item+'<br>';
-  });
-  document.getElementById('cartList').innerHTML = html;
-  document.getElementById('total').innerText = total.toLocaleString('id-ID');
+function addItemDirect(n,h){
+items.push(n);
+total+=h;
+render();
 }
 
-function toggleCart(){
-  document.getElementById('cartBox').classList.toggle('hidden');
+function render(){
+let html='';
+items.forEach((i,x)=>html+=(x+1)+'. '+i+'<br>');
+document.getElementById('cart').innerHTML=html;
+document.getElementById('total').innerText=total;
+document.getElementById('count').innerText=items.length;
 }
 
 function checkout(){
-  let pesan='Pesanan:%0A';
-  items.forEach((item,i)=>{
-    pesan += (i+1)+'. '+item+'%0A';
-  });
-  pesan += '%0ATotal: Rp '+total;
-  let url='https://wa.me/6285746959923?text='+Order;
-  window.open(url);
+if(items.length==0){alert('Pilih dulu!');return;}
+let text='Pesanan:%0A';
+items.forEach((i,x)=>text+=(x+1)+'. '+i+'%0A');
+text+='%0ATotal: '+total;
+window.open('https://wa.me/6285746959923?text='+OrderJastip);
 }
 </script></body>
 </html>
